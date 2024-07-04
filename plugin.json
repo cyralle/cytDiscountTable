@@ -1,0 +1,35 @@
+{
+    "version": "0.0.1",
+    "name": "cytDiscountTable",
+    "marketplaceName": { "de": "cytDiscountTable", "en": "cytDiscountTable" },
+    "description": "This is a plugin ",
+    "author": "plentymarkets GmbH",
+    "license": "AGPL-3.0",
+    "pluginIcon": "icon_plugin_xs.png",
+    "price": 0.0,
+    "shortDescription": {
+        "de": "cytDiscountTable plugin",
+        "en": "cytDiscountTable plugin"
+    },
+    "platform": {
+        "php": ">=7.3 <8.1"
+    },
+    "authorIcon": "icon_author_xs.png",
+    "email": "",
+    "phone": "",
+    "categories": ["3527"],
+    "keywords": ["plentymarkets", "plugins"],
+    "type": "backend",
+    "require": [],
+    "namespace": "cytDiscountTable",
+    "serviceProvider": "cytDiscountTable\\Providers\\DiscountTableServiceProvider",
+    "runOnBuild":["cytDiscountTable\\Migrations\\CreateDiscountTable"],
+    "dataProviders"         :
+    [
+        {
+            "key"           :"cytDiscountTable\\Containers\\DiscountContainer",
+            "name"          :"Discount Table",
+            "description"   :"Hier fehlt noch die Beschreibung"
+        }
+    ]
+}

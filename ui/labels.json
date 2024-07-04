@@ -1,0 +1,10 @@
+{
+    "labels": {
+        "clientClass": {"de" : "Kundenklasse", "en" : "clientClass" , "sortable":true},
+        "prefix": {"de" : "präfix", "en" : "prefix", "sortable":true},
+        "wmr": {"de" : "WMR", "en" : "WMR", "sortable":true},
+        "kwr": {"de" : "KWR", "en" : "KWR", "sortable":true},
+        "wkz": {"de" : "WKZ", "en" : "WKZ" ,"sortable":true},
+        "pr": {"de" : "PR", "en" : "PR", "sortable":true}
+    }
+}

@@ -1,0 +1,60 @@
+
+<script>
+
+    const go = () => {
+        const templateType = '{{ urls.getTemplateType() }}';
+        console.log("type: ",templateType);
+        // nur Preis:
+        //var regex = /[+-]?\d+(\.\d+)?/g;
+        //console.log("klasse: ",window.ceresStore.state.user.userData.classId); // ist null!
+        // Preis + alles davor und danach
+        
+        const discountTable = window.discountTable;
+
+        if (templateType == 'item') {
+            const itemPriceEl = document.querySelector('.price.h1 > span');
+            const itemPrice = itemPriceEl.textContent.trim().replace(",",".");
+            // 5.15 EUR
+            const regex1 = /^([+-]?\d+\.\d+?)(\s+.*)/;
+            const itemParts = regex1.exec(itemPrice);
+            console.log("itemParts: ", (itemParts), " : ",itemPrice);
+            const newItemPrice = (parseFloat(itemParts[1])*0.9).toFixed(2);
+            itemPriceEl.innerText = newItemPrice+itemParts[2];
+        } else if (templateType == 'category') {
+            const grid = document.querySelectorAll('.product-list.grid li');
+            // ab 5.15 EUR *
+            const regex2 = /^(.*\s+)([+-]?\d+\.\d+?)(\s+.*)/;
+            grid.forEach(element => {
+                const gridPriceEl = element.querySelector('article .price');
+                const gridPrice = gridPriceEl.textContent.trim().replace(",",".");
+                const gridParts = regex2.exec(gridPrice);
+                
+                console.log("gridParts: ", (gridParts));
+                
+                const newGridPrice = (parseFloat(gridParts[2])*0.9).toFixed(2);
+                
+                gridPriceEl.innerText = gridParts[1]+(newGridPrice.replace(".",","))+gridParts[3];
+                
+            });
+        } else if (templateType == 'home') {
+        }
+        // https://forum.plentymarkets.com/t/css-klasse-fuer-angemeldete-nutzer/605576/13
+        window.ceresStore.subscribe((mutation, state) =>
+        {
+            if (mutation.type === "setUserData" && !!mutation.payload.id)
+            {
+                document.body.classList.add("logged-in");
+            }
+        });
+    }
+
+    const main = () => {
+        window.setTimeout(() => {
+        //    go();
+        }, 3000);
+    }
+    main();
+    window.onload = (event) => {
+        go();
+    }
+</script>

@@ -1,0 +1,21 @@
+<script type="x/template" id="vue-click-counter">
+    <div>
+        <button class="btn btn-primary" @click="count++" :id="'btn' + _uid">count up</button>
+
+        <label :for="'btn' + _uid">count is: ${ count }</label>
+    </div>
+</script>
+
+<script>
+    Vue.component("click-counter", {
+        template: "#vue-click-counter",
+        delimiters: ["${", "}"],
+
+        data()
+        {
+            return {
+                count: 0
+            };
+        }
+    });
+</script>

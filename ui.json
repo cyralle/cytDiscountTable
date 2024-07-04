@@ -1,0 +1,12 @@
+{
+  "defaultEntryPoint": "index.html",
+  "namespace": "cytDiscountTable",
+  "menuEntries": [
+    {
+      "label": "cyt-Discount-Table",
+      "menu": "cms",
+      "urlKey": "cytDiscount",
+      "entryPoint": "index.html"
+    }
+  ]
+}

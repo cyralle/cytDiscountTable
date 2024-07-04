@@ -1,0 +1,5 @@
+{% include "cytDiscountTable::Components.ItemPrice" %}
+{% include "cytDiscountTable::Components.ClickCounter" %}
+<script>
+        window.discountTable = {{ discountTable | json_encode | raw}};
+</script>
